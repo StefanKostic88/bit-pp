@@ -3,7 +3,7 @@
 // 1. Write a for loop that will iterate from 0 to 15. For each iteration, it will check if the current
 // number is odd or even, and display a message to the screen.
 
-// for (let i = 1; i < 16; i++) {
+// for (let i = 1; i <= 15; i++) {
 //   i % 2 === 0 ? console.log("even") : console.log("Odd");
 // }
 
@@ -12,6 +12,7 @@
 // let sum = 0;
 // let multy3Sum = 0;
 // let multy5Sum = 0;
+
 // for (let i = 0; i < 1000; i++) {
 //   if (i % 3 === 0) {
 //     multy3Sum = i;
@@ -33,6 +34,8 @@
 //   sum += arr[i];
 //   product *= arr[i];
 // }
+// console.log(sum, product);
+
 // 4. Write a program which prints the elements of the following array as a single string.
 
 // const x = ["1", "A", "B", "c", "r", true, NaN, undefined];
