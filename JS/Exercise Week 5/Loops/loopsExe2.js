@@ -12,20 +12,42 @@ for (let i = 0; i < a.length; i++) {
 let result = isValid ? "yes" : "no";
 
 console.log(result);
+
+///////////////
+//Druga Verzija
+///////////////
+
+let e = 3;
+const a = [5, -4, 2, 3, 7];
+let result = "no";
+for (let i = 0; i < a.length; i++) {
+  if (e === a[i]) {
+    result = "yes";
+    break;
+  }
+}
+console.log(result);
 */
+
 /*
-Write a program that checks if a given element e is in the array a.
+//  2. Write a program that multiplies every positive element of a given array by 2.
+
 const arr = [-3, 11, 5, 3, 4, -8];
+const newArr = [];
 let sum = 0;
+let multy = 0;
 for (let i = 0; i < arr.length; i++) {
   if (arr[i] >= 0) {
     sum += arr[i];
+    multy = arr[i] * 2;
+    newArr.push(multy);
   }
 }
-console.log(sum);
+console.log(sum, newArr);
 */
+
 /*
-// Write a program that checks if a given element e is in the array a.
+// 3. Write a program that finds the first element larger than minimum and prints out its value.
 
 const arr = [4, 2, 2, -1, 6];
 let min = 0;
@@ -40,48 +62,60 @@ for (let i = 0; i < arr.length; i++) {
   index = arr.indexOf(min);
 }
 console.log(min, index);
+
+
+//Drugo Resenje
+
+
+const arr = [4, 2, 2, -1, 6];
+let min = arr[0];
+let index = 0;
+
+for (let i = 1; i < arr.length; i++) {
+  if (min > arr[i]) {
+    min = arr[i];
+  }
+}
+console.log(min, arr.indexOf(min));
+
+
 */
 
+/*
 // 4. Write a program that finds the first element larger than minimum and prints out its value.
 
-// RESI OVO JOS JEDNOM NE VALJA
-// Probaj sa deklaracijom varijabli na pozetcku
-// min = arr[0]
-// max = arr[0]
+const arr = [4, 2, 2, -1, 6];
 
-// i izbegnes duple petlje
-// const arr = [4, 2, 2, -1, 6];
+let min = 0;
+let nextMin = 0;
 
-// let min = 0;
-// let nextMin = 0;
+for (let i = 0; i < arr.length - 1; i++) {
+  for (let j = 1; j < arr.length; j++) {
+    min = arr[i] < arr[j] ? arr[i] : arr[j];
+    nextMin = arr[arr.indexOf(min) - 1];
+  }
+}
+console.log(nextMin);
+//////
 
-// for (let i = 0; i < arr.length - 1; i++) {
-//   for (let j = 1; j < arr.length; j++) {
-//     min = arr[i] < arr[j] ? arr[i] : arr[j];
-//     nextMin = arr[arr.indexOf(min) - 1];
-//   }
-// }
-// //////
+console.log(min, nextMin);
 
-// console.log(min, nextMin);
+var arr = [4, -10, 2, 2, -1, 6];
+var min = arr[0];
+var nextMin = arr[0];
 
-// var arr = [4, -10, 2, 2, -1, 6];
-// var min = arr[0];
-// var nextMin = arr[0];
+for (let i = 1; i < arr.length; i++) {
+  if (arr[i] < min) {
+    nextMin = min;
+    min = arr[i];
+  }
+}
+console.log(min, nextMin);
 
-// for (let i = 1; i < arr.length; i++) {
-//   if (arr[i] < min) {
-//     nextMin = min;
-//     min = arr[i];
-//   }
-//   console.log(min, nextMin);
-// }
-
-// console.log(val, "value");
-
-// console.log("next value", counter);
+*/
 
 // 5. Write a program that calculates the sum of positive elements in the array.
+
 // const arr = [3, 11, -5, -3, 2];
 // let sum = 0;
 // for (let i = 0; i < arr.length; i++) {
@@ -92,26 +126,27 @@ console.log(min, index);
 
 // console.log(sum);
 
+/*
 // 6. Write a program that checks if a given array is symmetric. An array is symmetric if it can
 // be read the same way both from the left and the right hand side.
 
-// const arr = [2, 4, -2, 7, -2, 4, 2];
-// // const arr = [3, 4, 12, 8];
-// let result = "";
-// for (let i = 0; i < arr.length; i++) {
-//   let x = 0;
-//   for (let j = arr.length - 1; j >= 0; j--) {
-//     let firstIndex = arr[i];
-//     let lastIndex = arr[j];
+const arr = [2, 4, -2, 7, -2, 4, 2];
+// const arr = [3, 4, 12, 8];
+let result = "";
+for (let i = 0; i < arr.length; i++) {
+  let x = 0;
+  for (let j = arr.length - 1; j >= 0; j--) {
+    let firstIndex = arr[i];
+    let lastIndex = arr[j];
 
-//     if (arr[i] === arr[j]) {
-//       result = "The array is symmetric.";
-//     } else {
-//       result = "The array is not symmetric.";
-//     }
-//   }
-// }
-// console.log(result);
+    if (arr[i] === arr[j]) {
+      result = "The array is symmetric.";
+    } else {
+      result = "The array is not symmetric.";
+    }
+  }
+}
+console.log(result);
 
 const arr = [2, 4, -2, 7, -2, 4, 2];
 // const arr = [3, 4, 12, 8];
@@ -119,9 +154,11 @@ let result = "The array is symmetric.";
 for (let i = 0, j = arr.length - 1; i <= j; i++, j--) {
   if (arr[i] !== arr[j]) {
     result = "The array is not symmetric.";
+    break;
   }
 }
 console.log(result);
+*/
 
 // 7. Write a program that intertwines two arrays. You can assume the arrays are of the same
 // length.
@@ -136,6 +173,7 @@ console.log(result);
 // }
 
 // console.log(newArr);
+
 /*
 // 8. Write a program that concatenates two arrays.
 
@@ -157,6 +195,7 @@ do {
 
 console.log(newArr);
 */
+
 /*
 // 9. Write a program that deletes a given element e from the array a.
 
