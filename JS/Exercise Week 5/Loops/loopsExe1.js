@@ -36,39 +36,49 @@
 // }
 // console.log(sum, product);
 
+/*
 // 4. Write a program which prints the elements of the following array as a single string.
 
-// const x = ["1", "A", "B", "c", "r", true, NaN, undefined];
-// let singleString = "";
-// for (let i = 0; i < x.length; i++) {
-//   singleString += x[i] + " ";
-// }
-// console.log(singleString);
+const x = ["1", "A", "B", "c", "r", true, NaN, undefined];
+let singleString = "";
+for (let i = 0; i < x.length; i++) {
+  if (x[i] !== x[x.length - 1]) {
+    singleString += x[i] + ", ";
+  } else {
+    singleString += x[i];
+  }
+}
+console.log(singleString);
+*/
 
+/*
 // 5. Write a program that prints the elements of the following array.
 
-// const arr = [
-//   [1, 2, 1, 24],
-//   [8, 11, 9, 4],
-//   [7, 0, 7, 27],
-// ];
-// const newArr = [];
-// for (let i = 0; i < arr.length; i++) {
-//   for (let j = 0; j < arr[i].length; j++) {
-//     newArr.push(arr[i][j]);
-//   }
-// }
-// console.log(newArr);
+const arr = [
+  [1, 2, 1, 24],
+  [8, 11, 9, 4],
+  [7, 0, 7, 27],
+];
+const newArr = [];
+for (let i = 0; i < arr.length; i++) {
+  for (let j = 0; j < arr[i].length; j++) {
+    newArr.push(arr[i][j]);
+  }
+}
+console.log(newArr);
+*/
 
+/*
 // 6 Write a program that outputs the sum of squares of the first 20 numbers.
 
-// let sum = 0;
-// for (let i = 1; i < 21; i++) {
-//   let square = i * i;
-//   console.log(square);
-//   sum += square;
-// }
-// console.log(sum);
+let sum = 0;
+for (let i = 1; i < 21; i++) {
+  let square = i * i;
+  console.log(square);
+  sum += square;
+}
+console.log(sum);
+*/
 
 /*
 7. Write a program that computes average marks of the following students. Then use this
