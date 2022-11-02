@@ -70,6 +70,35 @@ console.log(x);
 */
 
 /*
+// 5. Write a program that draws a square of a given size. For example, if the size of
+// square is 5 the program should draw:
+// *****
+// * *
+// * *
+// * *
+// *****
+function square(lenY, lenX) {
+  var string = "";
+
+  var lengthY = lenY - 1;
+  var lengthX = lenX - 1;
+
+  for (let i = 0; i < lenY; i++) {
+    for (let j = 0; j < lenX; j++) {
+      if (i !== 0 && i !== lengthY && j !== 0 && j !== lengthX) {
+        string += " ";
+      } else {
+        string += "*";
+      }
+    }
+    string += "\n";
+  }
+  return string;
+}
+var result = square(5, 10);
+console.log(result);
+*/
+/*
 // 6. Write a program that draws a horizontal chart representing three given values.
 // For example, if values are 5, 3, and 7, the program should draw:
 
@@ -206,20 +235,3 @@ function concatString(string, times) {
 var x = concatString("ABC", 6);
 console.log(x);
 */
-
-function square(length) {
-  var string = "";
-  console.log(length - 1);
-  for (let i = 0; i < 5; i++) {
-    for (let j = 0; j < 5; j++) {
-      if ((i === 1 || i === 2 || i === 3) && (j === 1 || j === 2 || j === 3)) {
-        string += " ";
-      } else {
-        string += "*";
-      }
-    }
-    string += "\n";
-  }
-  console.log(string);
-}
-square(5);
