@@ -5,6 +5,25 @@
 // 1. Write a program to insert a string within a string at a particular position (default is 1,
 //   beginning of a string).
 
+function insertString(string, el, word) {
+  var fiirstPartWord = "";
+  var secondPartWord = "";
+  for (var i = 0, j = word; i < word; i++, j++) {
+    fiirstPartWord += string[i];
+
+    if (typeof string[j] !== "undefined") {
+      secondPartWord += string[j];
+    }
+  }
+
+  return fiirstPartWord.trim() + " " + el + " " + secondPartWord.trim();
+}
+
+var x = insertString("My Random String", "JS", 10);
+
+console.log(x);
+
+
 function insertString(string, el, index = 0) {
   var string =
     string.slice(0, index).trim() + " " + el + " " + string.slice(index).trim();
@@ -188,3 +207,6 @@ function mostFreq(arr) {
 var x = mostFreq(arr);
 console.log(x);
 */
+
+// 1. Write a program to insert a string within a string at a particular position (default is 1,
+//   beginning of a string).
