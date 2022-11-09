@@ -1,7 +1,5 @@
 "use strict ";
-
 /*
-
 // 1. Write a program to insert a string within a string at a particular position (default is 1,
 //   beginning of a string).
 
@@ -10,19 +8,16 @@ function insertString(string, el, word) {
   var secondPartWord = "";
   for (var i = 0, j = word; i < word; i++, j++) {
     fiirstPartWord += string[i];
-
     if (typeof string[j] !== "undefined") {
       secondPartWord += string[j];
     }
   }
-
   return fiirstPartWord.trim() + " " + el + " " + secondPartWord.trim();
 }
 
 var x = insertString("My Random String", "JS", 10);
 
 console.log(x);
-
 
 function insertString(string, el, index = 0) {
   var string =
@@ -89,20 +84,44 @@ function reverseNum(num) {
 var x = reverseNum(number);
 console.log(x);
 */
-
 /*
 // 5. Write a function to get the last element of an array. Passing a parameter &#39;n&#39; will return the
 // last &#39;n&#39; elements of the array.
 
+// var arr = [7, 9, 0, -2];
+// function getLastIndex(arr, index) {
+//   var newArr = [];
+//   if (typeof index === "undefined") return arr[arr.length - 1];
+
+//   var lastIndex = arr.length - index;
+//   for (var i = arr.length - 1; i > index; i--) {
+//     newArr[newArr.length] = arr[i];
+//   }
+
+//   return arr[lastIndex];
+// }
+
+// var x = getLastIndex(arr, 2);
+// console.log(x);
+
 var arr = [7, 9, 0, -2];
 function getLastIndex(arr, index) {
+  // console.log(index);
+  // console.log(arr.length - index);
+  var newArr = [];
   if (typeof index === "undefined") return arr[arr.length - 1];
-  var lastIndex = arr.length - index;
-  return arr[lastIndex];
+
+  // var lastIndex = arr.length - index;
+  for (var i = arr.length - 1; i >= arr.length - index; i--) {
+    console.log(arr[i]);
+    // newArr[newArr.length] = arr[i];
+  }
+
+  // return arr[lastIndex];
 }
 
-var x = getLastIndex(arr, 2);
-console.log(x);
+var x = getLastIndex(arr, 4);
+// console.log(x);
 */
 
 /*
@@ -207,6 +226,3 @@ function mostFreq(arr) {
 var x = mostFreq(arr);
 console.log(x);
 */
-
-// 1. Write a program to insert a string within a string at a particular position (default is 1,
-//   beginning of a string).

@@ -185,41 +185,69 @@ console.log(a);
 /*
 // 10. Write a function to get the first n characters and add “...” at the end of newly created string.
 
-function addLetter(string) {
-  console.log(string[0]);
-  // var newString = string + string[0];
-  var newString = string;
-  for (var i = 0, j = string.length - 1; i < string.length; i++, j--) {
-    newString += string[j];
-  }
-  return newString;
-}
+// function addLetter(string) {
+//   console.log(string[0]);
+//   // var newString = string + string[0];
+//   var newString = string;
+//   for (var i = 0, j = string.length - 1; i < string.length; i++, j--) {
+//     newString += string[j];
+//   }
+//   return newString;
+// }
 
-var x = addLetter("HaHa");
-console.log(x);
+// var x = addLetter("HaHa");
+// console.log(x);
 
+// function addLetter(string, n) {
+//   if (n > string.length) return "Invalid input";
+//   var result = "";
+//   for (var i = 0; i < n; i++) {
+//     result += string[i];
+//   }
+//   return result + "...";
+// }
+
+// var x = addLetter("ABCD", 3);
+// console.log(x);
 */
 
 /*
 // 11. Write a function that converts an array of strings into an array of numbers. Filter out all
 // non-numeric values.
 
-var arr = ["1", "21", undefined, "42", "1e+3", Infinity];
+// var arr = ["1", "21", undefined, "42", "1e+3", Infinity];
 
-function filterAndConvert(arr) {
-  var newArr = [];
-  for (var i = 0; i < arr.length; i++) {
-    var convertedEl = +arr[i];
+// function filterAndConvert(arr) {
+//   var newArr = [];
+//   for (var i = 0; i < arr.length; i++) {
+//     var convertedEl = +arr[i];
 
-    if (isFinite(convertedEl)) {
-      newArr.push(convertedEl);
-    }
-  }
-  return newArr;
-}
+//     if (isFinite(convertedEl)) {
+//       newArr.push(convertedEl);
+//     }
+//   }
+//   return newArr;
+// }
 
-var x = filterAndConvert(arr);
-console.log(x);
+// var x = filterAndConvert(arr);
+// console.log(x);
+
+// var arr = ["1", "21", undefined, "42", "1e+3", Infinity];
+
+// function filterAndConvert(arr) {
+//   var newArr = [];
+//   for (var i = 0; i < arr.length; i++) {
+//     var convertedEl = parseFloat(arr[i]);
+
+//     if (isFinite(convertedEl)) {
+//       newArr.push(convertedEl);
+//     }
+//   }
+//   return newArr;
+// }
+
+// var x = filterAndConvert(arr);
+// console.log(x);
 */
 
 /*
@@ -227,20 +255,30 @@ console.log(x);
 // year of birth. Retirement for men is at age of 65 and for women at age of 60. If someone is
 // already retired, a proper message should be displayed.
 
+// pogledaj ovo
+
 function isNotValidFun(sex, age) {
-  if ((sex === "male" && age >= 65) || (sex === "female" && age >= 60))
+  if ((sex === "male" && age >= 65) || (sex === "female" && age >= 60)) {
     return false;
+  } else {
+    return true;
+  }
 }
 
 function checkRetirement(sex, age) {
   var convertToLowerCase = sex.toLowerCase();
   var isNotValid = isNotValidFun(convertToLowerCase, age);
-  if (!isNotValid) return "Already retired";
-  return convertToLowerCase === "female" ? 60 - age : 65 - age;
+  console.log(isNotValid, "S");
+  if (isNotValid) {
+    return convertToLowerCase === "female" ? 60 - age : 65 - age;
+  } else {
+    return "Already retired";
+  }
 }
 
-var x = checkRetirement("Male", 50);
+var x = checkRetirement("Male", 64);
 console.log(x);
+
 */
 
 /*
