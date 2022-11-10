@@ -158,26 +158,61 @@ var x = checkIsPerfect(28);
 console.log(x);
 */
 
-/*
-
 // 8.Write a function to find a word within a string.
-function findWord(string, word) {
-  var convertToArr = string.split(" ");
-  var count = 0;
-  for (var i = 0; i < convertToArr.length; i++) {
-    if (convertToArr[i].toLowerCase() === word.toLowerCase()) {
-      count++;
-    }
-  }
-  var string = count < 2 ? " time" : " times";
-  return "The word " + word + " is repeated " + count + string;
-}
+// function findWord(string, word) {
+//   var convertToArr = string.split(" ");
+//   var count = 0;
+//   for (var i = 0; i < convertToArr.length; i++) {
+//     if (convertToArr[i].toLowerCase() === word.toLowerCase()) {
+//       count++;
+//     }
+//   }
+//   var string = count < 2 ? " time" : " times";
+//   return "The word " + word + " is repeated " + count + string;
+// }
 
-var x = findWord("The quick brown fox", "fox");
-console.log(x);
-var a = findWord("aa bb cc dd aa", "aa");
-console.log(a);
-*/
+// var x = findWord("The quick brown fox", "fox");
+// console.log(x);
+// var a = findWord("aa bb cc dd aa", "aa");
+// console.log(a);
+
+// function findWord(string, word) {
+//   // string += " ";
+//   var newWord = "";
+//   var newArr = [];
+//   var sum = 0;
+//   for (let i = 0; i < string.length; i++) {
+//     if (string[i] === " ") {
+//       newArr[newArr.length] = newWord;
+//       newWord = "";
+//     } else if (i === string.length - 1) {
+//       newWord += string[i];
+//       newArr[newArr.length] = newWord;
+//     } else {
+//       newWord += string[i];
+//     }
+//   }
+//   var x = findWord("The quick brown fox", "fox");
+
+// //Pogledaj ovo bolje
+///////////////////////
+//////////////////////
+// var sentence = "The quick brown fox";
+// var arrSentence = [];
+// var count = 0;
+// arrSentence[0] = "";
+
+// for (var i = 0; i < sentence.length; i++) {
+//   if (sentence[i] === " " || sentence[i] === ",") {
+//     count++;
+//     arrSentence[count] = "";
+//   } else {
+//     arrSentence[count] += sentence[i];
+//     // console.log(count);
+//   }
+// }
+
+// console.log(arrSentence);
 
 /*
 // 9. Write a function to hide email address.

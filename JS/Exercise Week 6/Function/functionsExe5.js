@@ -19,8 +19,8 @@ function getminMax(arr) {
 function switchPlaces(arr) {
   // var min = getminMax(arr)[0];
   // var max = getminMax(arr)[1];
-
   var [min, max] = getminMax(arr);
+
   var newArr = [];
   for (var i = 0; i < arr.length; i++) {
     var el = arr[i];
@@ -302,6 +302,7 @@ console.log(x);
 
 function findCommonDiv(num1, num2) {
   var length = num1 >= num2 ? num2 : num1;
+
   var common;
   for (var i = 1; i <= length; i++) {
     if (num1 % i === 0 && num2 % i === 0) {
