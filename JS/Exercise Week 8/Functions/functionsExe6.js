@@ -134,6 +134,52 @@ console.log(x);
 */
 
 /*
+
+// 7. Write a function to find the maximum element in array of numbers. Filter out all non-number
+// elements.
+
+const findMax = function (arr) {
+  var max;
+  for (var i = 0; i < arr.length; i++) {
+    console.log();
+    if (isFinite(parseInt(arr[i]))) {
+      max = arr[i];
+      break;
+    }
+  }
+  for (var i = 0; i < arr.length; i++) {
+    if (isFinite(arr[i]) && max < arr[i]) {
+      max = arr[i];
+    }
+  }
+
+  return max;
+};
+
+var x = findMax(["asdasd", 5, "asd", 8, 4, "asdasd"]);
+console.log(x);
+*/
+
+/*
+// 8.. Write a function to find the maximum and minimum elements. Function returns an array.
+
+var arr = [3, 500, 12, 149, 53, 414, 1, 19];
+
+function getminMax(arr) {
+  var min = arr[0];
+  var max = arr[0];
+  for (var i = 1; i < arr.length; i++) {
+    if (min > arr[i]) min = arr[i];
+    if (max < arr[i]) max = arr[i];
+  }
+  return [min, max];
+}
+
+var x = getminMax(arr);
+console.log(x);
+*/
+
+/*
 // 9. Write a function to find the median element of array.
 var findMedian = function (arr) {
   var result;
@@ -167,13 +213,32 @@ var x = greaterThanAvrage([12, 16, 5, 1, 3, 4]);
 console.log(x);
 */
 
+/*
 // 10. Write a function to find the element that occurs most frequently.
 
 var mostOcss = function (arr) {
-  //resi
+  var maxNum = 0;
+  var val;
+  for (var i = 0; i < arr.length; i++) {
+    var repeatedNum = 0;
+    var curEl = arr[i];
+    for (var j = 0; j < arr.length; j++) {
+      if (curEl === arr[j]) {
+        repeatedNum++;
+      }
+      if (repeatedNum > maxNum) {
+        maxNum = repeatedNum;
+        val = arr[i];
+      }
+    }
+  }
+  var message = maxNum <= 1 ? " time" : " times";
+  return "element " + val + " is repeated " + maxNum + message;
 };
 
 var x = mostOcss("aaasssaaacccsssaaa");
+console.log(x);
+*/
 
 /*
 // 11. Write a function to find and return the first, middle and last element of an array if the array
@@ -198,7 +263,6 @@ console.log(x);
 */
 
 /*
-POgledaj ovo da ispravis
 // 15. Write a function that takes a list of strings and prints them, one per line, in a rectangular
 // frame.:
 
@@ -222,55 +286,44 @@ var convertStringToArr = function (string) {
   return testArr;
 };
 
+var genereteLine = function (input) {
+  var line = "* ";
+  for (var i = 0; i < input; i++) {
+    line += "*";
+  }
+  line += " *\n";
+  return line;
+};
+
 var printWords = function (string) {
   var input = typeof string === "string" ? convertStringToArr(string) : string;
-  var stars = "";
-  var count = 0;
+  var letterLength = input.length - 1;
+  var word = "* ";
+  var line = genereteLine(input.length);
 
-  for (var i = 0; i < input.length + 2; i++) {
-    for (var j = 0; j < 9; j++) {
-      if (j !== 0 && j !== 6 && i !== 0 && i !== input.length + 1) {
-        stars += " ";
-        stars += input[count];
-        stars += " *";
-        count++;
-        break;
-      } else {
-        stars += "*";
+  for (var i = 0; i < input.length; i++) {
+    for (var j = 0; j < input.length; j++) {
+      var el = typeof input[i][j] === "undefined" ? " " : input[i][j];
+      word += el;
+
+      if (j === letterLength) {
+        word += " *\n";
+
+        if (i === letterLength && j === letterLength) {
+          word += "";
+        } else {
+          word += "* ";
+        }
       }
     }
-    stars += "\n";
   }
-  return stars;
+
+  return line + word + line;
 };
 
 var x = printWords("Hello, World in a frame");
 console.log(x);
 */
 
-/*
-
-// 7. Write a function to find the maximum element in array of numbers. Filter out all non-number
-// elements.
-
-const findMax = function (arr) {
-  var max;
-  for (var i = 0; i < arr.length; i++) {
-    console.log();
-    if (isFinite(parseInt(arr[i]))) {
-      max = arr[i];
-      break;
-    }
-  }
-  for (var i = 0; i < arr.length; i++) {
-    if (isFinite(arr[i]) && max < arr[i]) {
-      max = arr[i];
-    }
-  }
-
-  return max;
-};
-
-var x = findMax(["asdasd", 5, "asd", 8, 4, "asdasd"]);
-console.log(x);
-*/
+// 12. Write a function to find the average of N elements. Make the function flexible to receive
+// dynamic number or parameters.
