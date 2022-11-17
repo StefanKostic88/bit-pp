@@ -166,3 +166,111 @@ var greaterThanAvrage = function (arr) {
 var x = greaterThanAvrage([12, 16, 5, 1, 3, 4]);
 console.log(x);
 */
+
+// 10. Write a function to find the element that occurs most frequently.
+
+var mostOcss = function (arr) {
+  //resi
+};
+
+var x = mostOcss("aaasssaaacccsssaaa");
+
+/*
+// 11. Write a function to find and return the first, middle and last element of an array if the array
+// has odd number of elements. If number of elements is even, return just the first and the
+// last. In other cases (empty array), input array should be returned.
+
+var getElements = function (arr) {
+  if (arr.length === 0) return arr;
+  var newArr = [arr[0]];
+  if (arr.length % 2 === 0) newArr[1] = arr[arr.length - 1];
+
+  for (var i = 1, j = arr.length - 2; i <= j; i++, j--) {
+    if (arr[i] !== arr[j]) continue;
+    newArr[newArr.length] = arr[i];
+    newArr[newArr.length] = arr[arr.length - 1];
+  }
+  return newArr;
+};
+
+var x = getElements(["first", 2, "midle", 5, "last"]);
+console.log(x);
+*/
+
+/*
+POgledaj ovo da ispravis
+// 15. Write a function that takes a list of strings and prints them, one per line, in a rectangular
+// frame.:
+
+var convertStringToArr = function (string) {
+  var count = 0;
+  var newArr = [];
+  var testArr = [];
+  newArr[0] = "";
+  for (var i = 0; i < string.length; i++) {
+    if (string[i] === " " || string[i] === ",") {
+      count++;
+      newArr[count] = "";
+    } else {
+      newArr[count] += string[i];
+    }
+  }
+  for (var i = 0; i < newArr.length; i++) {
+    if (newArr[i] === "") continue;
+    testArr[testArr.length] = newArr[i];
+  }
+  return testArr;
+};
+
+var printWords = function (string) {
+  var input = typeof string === "string" ? convertStringToArr(string) : string;
+  var stars = "";
+  var count = 0;
+
+  for (var i = 0; i < input.length + 2; i++) {
+    for (var j = 0; j < 9; j++) {
+      if (j !== 0 && j !== 6 && i !== 0 && i !== input.length + 1) {
+        stars += " ";
+        stars += input[count];
+        stars += " *";
+        count++;
+        break;
+      } else {
+        stars += "*";
+      }
+    }
+    stars += "\n";
+  }
+  return stars;
+};
+
+var x = printWords("Hello, World in a frame");
+console.log(x);
+*/
+
+/*
+
+// 7. Write a function to find the maximum element in array of numbers. Filter out all non-number
+// elements.
+
+const findMax = function (arr) {
+  var max;
+  for (var i = 0; i < arr.length; i++) {
+    console.log();
+    if (isFinite(parseInt(arr[i]))) {
+      max = arr[i];
+      break;
+    }
+  }
+  for (var i = 0; i < arr.length; i++) {
+    if (isFinite(arr[i]) && max < arr[i]) {
+      max = arr[i];
+    }
+  }
+
+  return max;
+};
+
+var x = findMax(["asdasd", 5, "asd", 8, 4, "asdasd"]);
+console.log(x);
+*/
