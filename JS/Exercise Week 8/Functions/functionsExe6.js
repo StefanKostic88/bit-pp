@@ -263,6 +263,22 @@ console.log(x);
 */
 
 /*
+// 12. Write a function to find the average of N elements. Make the function flexible to receive
+// dynamic number or parameters.
+
+var findAvarage = function () {
+  var sum = 0;
+  for (var i = 0; i < arguments.length; i++) {
+    sum += arguments[i];
+  }
+  return sum / arguments.length;
+};
+
+var x = findAvarage(1, 5, 3, 8);
+console.log(x);
+*/
+
+/*
 // 15. Write a function that takes a list of strings and prints them, one per line, in a rectangular
 // frame.:
 
@@ -324,6 +340,3 @@ var printWords = function (string) {
 var x = printWords("Hello, World in a frame");
 console.log(x);
 */
-
-// 12. Write a function to find the average of N elements. Make the function flexible to receive
-// dynamic number or parameters.
