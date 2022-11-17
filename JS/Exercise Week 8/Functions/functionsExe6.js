@@ -279,6 +279,51 @@ console.log(x);
 */
 
 /*
+// 13. Write a function to find all the numbers greater than the average.
+
+var findGtAvrage = function (arr) {
+  var sum = arr[0];
+  var newArr = [];
+  for (var i = 1; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  var avrage = sum / arr.length;
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] <= avrage) continue;
+    newArr[newArr.length] = arr[i];
+  }
+  return newArr;
+};
+
+var x = findGtAvrage([1, 2, 5, 9, 8, 4, 5, 5]);
+console.log(x);
+*/
+
+/*
+// 14. The body mass index (BMI) is the ratio of the weight of a person (in kilograms) to the
+// square of the height (in meters). Write a function that takes two parameters, weight and
+// height, computes the BMI, and prints the corresponding BMI category:
+
+var getData = function (bmi) {
+  if (bmi < 15) return "Starvation";
+  if (bmi >= 15 && bmi < 17.5) return "Anorexic";
+  if (bmi >= 17.5 && bmi < 18.5) return "Underweight";
+  if (bmi >= 18.5 && bmi < 25) return "Ideal";
+  if (bmi >= 25 && bmi < 30) return "Overweight";
+  if (bmi >= 30 && bmi < 40) return "Obese";
+  return "Morbidly obese";
+};
+
+var calcBMI = function (mass, height) {
+  var bmi = mass / height ** 2;
+  return getData(bmi);
+};
+
+var x = calcBMI(85, 1.8);
+console.log(x);
+*/
+
+/*
 // 15. Write a function that takes a list of strings and prints them, one per line, in a rectangular
 // frame.:
 
