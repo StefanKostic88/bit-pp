@@ -86,7 +86,8 @@ const rotateArr = function (arr, index) {
 };
 
 var x = rotateArr([1, 2, 3, 4, 5, 6], 2);
-console.log(x);
+// console.log(x);
+
 */
 
 /*
