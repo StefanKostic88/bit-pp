@@ -184,3 +184,287 @@ var x = function (a, b) {
 var t = x(5, 1);
 console.log(t);
 */
+
+// function x() {}
+
+// if (true) {
+//   var a = 25;
+// }
+
+// console.log(a);
+
+/*
+var result = true; /// true
+
+
+function subtract(first, second) {
+  return first - second;
+}
+
+result = subtract(12, -10); // 22
+
+
+result = subtract(22, 2); //20
+
+console.log(result);
+*/
+
+/*
+"use strict";
+
+myVar = "random"; ///
+
+function addOne(num) {
+  return num + 1;
+}
+
+var result = addOne(4);
+
+console.log(result);
+*/
+
+/*
+var global = 123;
+
+var resetGlobal = function () {
+  global = -1;
+};
+// resetGlobal();
+console.log(global);
+*/
+
+/*
+// Example 3
+
+var global = 123;
+
+var resetGlobal = function () {
+  global = -1;
+};
+
+resetGlobal; /// ignore
+
+console.log(global);
+*/
+
+/*
+// Example 4
+
+var global = 123;
+
+var resetGlobal = function () {
+  global = arguments[0] || -1;
+  // arguments = '', null, nan, undefined - false
+};
+
+resetGlobal(10);
+
+console.log(global); // 10
+
+resetGlobal(0);
+
+console.log(global); // -1
+*/
+
+/*
+// Example 5
+
+"use strict";
+
+var result = square(10);
+
+console.log(result); /// undefined
+
+function square(num) {
+  num *= num;
+  // return (num *= num);
+}
+///////////////////
+
+// function square(num) {
+//   num *= num;
+// }
+// var result;
+// result = square(10);
+*/
+
+/*
+// Example 6
+
+"use strict";
+
+var result = square(10);
+
+console.log(result);
+
+function square(num) {
+  return (num *= num);
+}
+*/
+
+/*
+// Example 7
+// var result;
+
+function toString(num) {
+  var result = num + "";
+
+  return result;
+}
+toString(23);
+// result = 23;
+console.log(toString(23)); //
+*/
+/*
+// Example 8
+
+function toString(num) {
+  "use strict";
+
+  result = num + "";
+
+  return result;
+}
+
+toString(num);
+
+console.log(result);
+*/
+
+/*
+// Example 9
+
+var output = toString(0.15);
+
+console.log(output); /// not function
+
+var toString = function (num) {
+  var result = num + "";
+
+  return result;
+};
+
+var toString; // undefined
+var output; // undefined
+output = toString(0.15); //=>  undefined(0.15);
+console.log(output); //greska
+
+toString = function (num) {
+  var result = num + "";
+
+  return result;
+};
+*/
+
+/*
+// Example 10
+
+var toString = function (num) {
+  var result = num + "";
+
+  return result;
+};
+
+var output = toString(0.15);
+
+console.log(output);
+
+var toString;
+var output;
+toString = function (num) {
+  var result = num + "";
+
+  return result;
+};
+output = toString(0.15);
+console.log(output);
+
+*/
+/*
+// Example 11
+
+var toString = function (num) {
+  console.log(num);
+  num = num || "NEMA VREDNOSTI";
+
+  var result = num + "";
+
+  return result;
+};
+
+var output = toString;
+
+console.log(output);
+*/
+
+/*
+// Example 12
+
+// 'use strict';
+
+var global = parseInt("1e2");
+
+incrementGlobal = function () {
+  global++;
+};
+
+incrementGlobal();
+
+console.log(global);
+
+console.log(typeof global);
+*/
+
+/*
+// Example 13
+
+function sum(num1, num2) {
+  console.log(num1, num2);
+  num1 = num1 || 0;
+  num2 = num2 || 0;
+  console.log(num1, num2);
+
+  if (!num1 && !num2) {
+    return -1;
+  }
+  return num1 + num2;
+}
+var sumNumbers = sum;
+var result = sumNumbers();
+console.log(result);
+
+// console.log(false || "" || NaN || false || "CAO" || undefined);
+console.log(true && "x" && NaN && false && "CAO" && undefined);
+*/
+/*
+// Example 14
+
+var x = 21;
+
+var girl = function () {
+  console.log(x); //undefined
+
+  var x = 20;
+};
+
+girl();
+*/
+/*
+// Example 15
+
+function test() {
+  var a;
+
+  function foo() {
+    return 2;
+  }
+
+  console.log(a);
+
+  console.log(foo());
+
+  var a = 1;
+}
+
+test();
+*/
