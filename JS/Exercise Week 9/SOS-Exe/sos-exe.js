@@ -253,27 +253,22 @@ var x = printNum([78, 111, 4, 4321]);
 console.log(x);
 */
 
-// console.log();
+// 9. Write a function that prints out the date of the next day.
+// Output: 25. 10. 2018.
 
-// // var year = new Date().getFullYear();
-// // console.log(year);
-// // var day = new Date().getDate();
-// // console.log(day);
-// // var month = new Date().getMonth() + 1;
-// // console.log(month);
+function nextday() {
+  dateObj.setDate(dateObj.getDate() + 1);
+  console.log(dateObj.getDate(), dateObj.getMonth() + 1, dateObj.getFullYear());
+}
 
-// console.log(
-//   new Date().toLocaleString("en-Us", {
-//     day: "2-digit",
-//     month: "long",
-//     year: "numeric",
-//   })
-// );
+nextday();
+// 10. Write a function that prints out the date of the previous day.
+// Output: 23. 10. 2018.
 
-// console.log(new Date());
+var dateObj = new Date();
 
-// var date = new Date();
-
-// // Add a day
-// date.setDate(date.getDate() + 1);
-// console.log(date.getDate());
+function prevDay() {
+  dateObj.setDate(dateObj.getDate() - 1);
+  console.log(dateObj.getDate(), dateObj.getMonth() + 1, dateObj.getFullYear());
+}
+prevDay();
