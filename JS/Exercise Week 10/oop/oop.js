@@ -58,11 +58,11 @@ var stefan = project(
 
 var neko = project("Something that says something", "JAVA", "neko95");
 
-// console.log(stefan);
+console.log(stefan);
 stefan.printRepo();
 stefan.checkProLang();
 stefan.checkIfInDev();
-
+console.log(neko);
 neko.printRepo();
 neko.checkProLang();
 neko.checkIfInDev();
@@ -85,11 +85,11 @@ var createRecipe = function (
   prepInstructions
 ) {
   return {
-    name,
+    name: name,
     typeOfCuisine: type,
     complexity: complexity,
     listOfIngredients: ingList,
-    prepTime,
+    prepTime: prepTime,
     preparingInstruction: prepInstructions,
     chekIfCanBePreparedUnderFeftheen: function () {
       return this.prepTime < 15 ? true : false;
