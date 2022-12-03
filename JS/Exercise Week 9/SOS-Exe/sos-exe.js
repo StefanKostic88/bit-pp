@@ -164,7 +164,6 @@ var checkArr = function (arr1, arr2, cb) {
 
 checkArr([3, 4, 1, 3], [8, 9, 3, 1, 11, 4, 3]);
 */
-
 /*
 // 8. Write a function that sorts an array of strings by the number of appearances of the letter
 // ‘a’ or ‘A’.
@@ -232,27 +231,33 @@ console.log(x);
 // 4
 // 4321
 
-var printNum = function (arr) {
+var printNum = function (arr, cb) {
   var string = "";
   for (var i = 0; i < arr.length; i++) {
-    for (var j = 8; j >= 0; j--) {
-      // console.log(arr[j] === arr[i]);
-      // console.log(arr[i]);
-      if (j === 0) {
-        string += arr[i];
-      } else {
-        string += "*";
-      }
-    }
+    var letters = "" + arr[i];
+    string += cb(letters);
     string += "\n";
   }
   return string;
 };
 
-var x = printNum([78, 111, 4, 4321]);
+var x = printNum([78, 111, 4, 4321], function (letters) {
+  var string = "";
+
+  for (var i = 0, j = letters.length - 11; i <= 10; i++, j++) {
+    if (i <= 10 - letters.length) {
+      string += "*";
+    } else {
+      string += letters[j];
+    }
+  }
+
+  return string;
+});
 console.log(x);
 */
 
+/*
 // 9. Write a function that prints out the date of the next day.
 // Output: 25. 10. 2018.
 
@@ -260,8 +265,9 @@ function nextday() {
   dateObj.setDate(dateObj.getDate() + 1);
   console.log(dateObj.getDate(), dateObj.getMonth() + 1, dateObj.getFullYear());
 }
-
 nextday();
+*/
+/*
 // 10. Write a function that prints out the date of the previous day.
 // Output: 23. 10. 2018.
 
@@ -272,3 +278,7 @@ function prevDay() {
   console.log(dateObj.getDate(), dateObj.getMonth() + 1, dateObj.getFullYear());
 }
 prevDay();
+*/
+
+// x("25");
+// x("2555");
