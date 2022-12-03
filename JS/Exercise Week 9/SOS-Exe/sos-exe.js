@@ -164,63 +164,100 @@ var checkArr = function (arr1, arr2, cb) {
 
 checkArr([3, 4, 1, 3], [8, 9, 3, 1, 11, 4, 3]);
 */
-/*
+
 // 8. Write a function that sorts an array of strings by the number of appearances of the letter
 // ‘a’ or ‘A’.
 // Input: [‘apple’, ‘tea’, ‘amazing’, ‘morning’, ‘JavaScript’]
 // Output: [‘morning’, ‘apple’, ‘tea’, ‘JavaScript’, ‘amazing’]
 
-var countLetters = function (string) {
-  var count = 0;
-  for (var i = 0; i < string.length; i++) {
-    if (string[i] === "a" || string[i] === "A") {
-      count += 1;
+var sortWords = function (arr) {
+  var countLetters = function (string) {
+    var count = 0;
+    for (var i = 0; i < string.length; i++) {
+      if (string[i] === "a" || string[i] === "A") {
+        count += 1;
+      }
     }
-  }
-  return count;
-};
+    return count;
+  };
 
-var recFun = function (arr, count = 0, maxCount, finalArr) {
-  if (count === maxCount) return finalArr;
-  var newArr = [];
   for (var i = 0; i < arr.length; i++) {
-    if (countLetters(arr[i]) === count) {
-      newArr[newArr.length] = arr[i];
+    for (var j = 0; j < arr.length; j++) {
+      console.log(arr[i], arr[j]);
+      if (countLetters(arr[i]) < countLetters(arr[j])) {
+        var temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        console.log("SWITCH", arr);
+      }
     }
   }
-  count++;
-  recFun(arr, count, maxCount, newArr);
-  return newArr;
+  return arr;
 };
-
-var sortWords = function (arr, cb, cb2) {
-  var newArr = [];
-  var output = [];
-  var count = 0;
-  var maxCount = 0;
-  for (var i = 0; i < arr.length; i++) {
-    maxCount = cb(arr[i]) > maxCount ? cb(arr[i]) : maxCount;
-  }
-  count = maxCount;
-  maxCount += 1;
-  for (var i = 0; i < maxCount; i++) {
-    newArr[newArr.length] = cb2(arr, i, maxCount);
-  }
-  for (var i = 0; i < newArr.length; i++) {
-    for (var j = 0; j < newArr[i].length; j++) {
-      output[output.length] = newArr[i][j];
-    }
-  }
-  return output;
-};
-
-var x = sortWords(
-  ["aaaas", "amazing", "apple", "JavaScript", "tea", "morning"],
-  countLetters,
-  recFun
-);
+var x = sortWords([
+  "aaaas",
+  "amazing",
+  "apple",
+  "JavaScript",
+  "tea",
+  "morning",
+]);
 console.log(x);
-*/
+
+// var countLetters = function (string) {
+//   var count = 0;
+//   for (var i = 0; i < string.length; i++) {
+//     if (string[i] === "a" || string[i] === "A") {
+//       count += 1;
+//     }
+//   }
+//   return count;
+// };
+// var recFun = function (arr, count = 0, maxCount, finalArr) {
+//   if (count === maxCount) return finalArr;
+
+//   var newArr = [];
+//   for (var i = 0; i < arr.length; i++) {
+//     if (countLetters(arr[i]) === count) {
+//       newArr[newArr.length] = arr[i];
+//     }
+//   }
+//   count++;
+//   recFun(arr, count, maxCount, newArr);
+//   // finalArr = recFun(arr, count, maxCount, newArr);
+//   return newArr;
+// };
+
+// var sortWords = function (arr, cb, cb2) {
+//   var newArr = [];
+//   var output = [];
+//   var count = 0;
+//   var maxCount = 0;
+//   for (var i = 0; i < arr.length; i++) {
+//     maxCount = cb(arr[i]) > maxCount ? cb(arr[i]) : maxCount;
+//   }
+//   count = maxCount;
+//   maxCount += 1;
+//   for (var i = 0; i < maxCount; i++) {
+//     newArr[newArr.length] = cb2(arr, i, maxCount);
+//   }
+//   for (var i = 0; i < newArr.length; i++) {
+//     for (var j = 0; j < newArr[i].length; j++) {
+//       output[output.length] = newArr[i][j];
+//     }
+//   }
+//   return output;
+// };
+
+// var x = sortWords(
+//   ["aaaas", "amazing", "apple", "JavaScript", "tea", "morning"],
+//   countLetters,
+//   recFun
+// );
+// console.log(x);
+
+// recFun(["aaaas", "amazing", "apple", "JavaScript", "tea", "morning"], 0, 2);
+// recFun(["aaaas", "amazing", "apple", "JavaScript", "tea", "morning"], 0, 3);
 
 /*
 // 11. Write a function that prints out an array of the numbers aligned from the right side.
