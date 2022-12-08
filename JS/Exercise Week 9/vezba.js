@@ -468,3 +468,61 @@ function test() {
 
 test();
 */
+
+// 3. Write a function that creates an object that represents a project. Each project is
+// described by: description, programming language, git repository, boolean status that
+// says if the project is in development or not. Add a method that prints out the project&#39;s
+// repository, a method that checks if the project is written in JavaScript as well as a
+// method that checks if the project is in development or not.
+
+// var projectClass = function (dec, lang, git, dev) {
+//   return {
+//     description: dec,
+//     programmingLang: lang,
+//     gitLoc: git,
+//     inDev: dev ? true : false,
+//     getGitLoc: function () {
+//       console.log(this.gitLoc);
+//     },
+//   };
+// };
+
+// var project1 = projectClass("Moj Projekat", "JS", "neka lokacija", "asdasd");
+// var project2 = project1;
+// console.log(project2);
+// project1.getGitLoc();
+// console.log(project1);
+// project1.programmingLang = "JAVA";
+// console.log(project1);
+// console.log(project2);
+
+var arr = [3, 500, 12, 149, 53, 414, 1, 19];
+
+// function getminMax(arr) {
+//   var min = arr[0];
+//   var max = arr[0];
+//   for (var i = 1; i < arr.length; i++) {
+//     if (min > arr[i]) min = arr[i];
+//     if (max < arr[i]) max = arr[i];
+//   }
+//   return [min, max];
+// }
+
+// var findMInMax = function (arr) {
+//   var min = arr[0];
+//   var max = arr[0];
+//   for (var i = 1; i < arr.length; i++) {
+//     if (min > arr[i]) {
+//       // console.log(min);
+//       min = arr[i];
+//     }
+//     if (max < arr[i]) {
+//       max = arr[i];
+//     }
+//   }
+
+//   return [min, max];
+// };
+
+// var x = findMInMax([3, 500, 12, 149, 53, 414, 1, 19]);
+// // console.log(x);
