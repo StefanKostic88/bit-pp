@@ -99,3 +99,23 @@ console.log(x);
 var t = celsiusToFahrenheit(86);
 console.log(t);
 */
+
+// var stefan = {
+//   name: "Stefan",
+//   age: 34,
+//   nestoNovo: { nekaVrednost: "Slama", nekaVrednost2: "Prsuta" },
+// };
+
+// var a = { ...stefan };
+
+// console.log(stefan.nestoNovo);
+// console.log(a.nestoNovo);
+
+// stefan.nestoNovo.nekaVrednost = "AAAAAAAAAA";
+
+// console.log(stefan.nestoNovo);
+// console.log(a.nestoNovo);
+
+// a.age = 20;
+// console.log(stefan);
+// console.log(a);
