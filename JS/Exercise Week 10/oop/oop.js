@@ -124,3 +124,19 @@ console.log(burger);
 
 burger.removeIng("meat");
 console.log(burger);
+
+function createRecipe(
+  name,
+  type,
+  complexity,
+  ingList,
+  prepTime,
+  prepInstructions
+) {
+  (this.name = name),
+    (this.typeOfCuisine = type),
+    (this.complexity = complexity),
+    (this.listOfIngredients = ingList),
+    (this.prepTime = prepTime),
+    (this.preparingInstruction = prepInstructions);
+}
