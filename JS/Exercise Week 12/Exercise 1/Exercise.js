@@ -151,6 +151,10 @@ addProduct("apples", 100, products);
 addProduct("milk", 80, products);
 addProduct("bannanas", 150, products);
 
+
+
+
+
 var totalAmount = products.reduce((acc, el) => (acc += el.price), 0);
 // console.log(totalAmount);
 
@@ -161,6 +165,18 @@ var totalAmountAvg = products
   }, 0)
   .toFixed(2);
 console.log(totalAmountAvg);
+
+
+
+var mostExpensive = products.reduce((product, el, index, arr) => {
+  var name = el.name;
+  var price = arr[0].price;
+  if (price < el.price) {
+    product = name;
+  }
+  return product.toUpperCase();
+}, "");
+console.log(mostExpensive);
 
 var funcFind = function (arr) {
   var max = arr[0].price;
@@ -289,7 +305,135 @@ var newFunc = validator();
 console.log(newFunc);
 */
 
+/*
+
 // 8. Write a function that calculates a number of days to your birthday.
 
 // Input: 25 February
 // Output: 5 days
+
+var curDate = new Date();
+
+var dateToBirthDay = function (curDate, birthDate) {
+  var time = curDate.getTime();
+  var birth = new Date(birthDate).getTime();
+  var result = Math.floor((birth - time) / 86400000);
+  return "you have " + result + " days left until birthday";
+};
+
+var x = dateToBirthDay(curDate, "11.12.2023");
+console.log(x);
+*/
+
+/*
+// 9. Write a function that for a given departure and arrival time calculates the time the trip
+// takes.
+// Input: 8:22:13 11:43:22
+// Output: 3 hours 21 minutes 9 seconds
+
+var getMiliSec = function (arr) {
+  console.log(arr);
+  var hourToMili = arr[0] * 60 * 60 * 1000;
+  var minToMili = arr[1] * 60 * 1000;
+  var secToMili = arr[2] * 1000;
+  var sum = hourToMili + minToMili + secToMili;
+  return sum;
+};
+
+var getDepTime = function (start, end) {
+  var startArr = start.split(":").map((el) => +el);
+  var endArr = end.split(":").map((el) => +el);
+  var result = getMiliSec(endArr) - getMiliSec(startArr);
+  var hour = Math.floor(result / 3600000);
+  var min = Math.floor(result / 60000) - hour * 60;
+  var sec =
+    startArr[2] > endArr[2]
+      ? 60 - (startArr[2] - endArr[2])
+      : endArr[2] - startArr[2];
+
+  var timeLeft = [hour, min, sec].join(":");
+  return timeLeft;
+};
+var x = getDepTime("8:22:13", "11:22:10");
+console.log(x);
+*/
+
+/*
+// 10.
+// a. Write a constructor function that creates points in space. Each point in space has
+// its own x, y, and z coordinate. For example, (3, 5, 1) can be a point in space.
+// b. Write a function that calculates the distance between two points in the space.
+
+var CreateDistance = function (x, y, z) {
+  this.x = x;
+  this.y = y;
+  this.z = z;
+};
+
+var p1 = new CreateDistance(3, 5, 1);
+var p2 = new CreateDistance(8, -5, 0);
+
+// console.log(p1, p2);
+
+var findDistance = function (val1, val2) {
+  console.log(val1, val2);
+  var distance = Math.sqrt(
+    (val2.x - val1.x) ** 2 + (val2.y - val1.y) ** 2 + (val2.z - val1.z) ** 2
+  );
+
+  return distance.toFixed(2);
+};
+
+var x = findDistance(p1, p2);
+console.log(x);
+*/
+/*
+// 11.
+// a. Write a function that generates a random integer value between 5 and 20.
+// b. Write a function that generates a random integer value between 50 and 100.
+// c. Write a function which expects a number and a callback generator function and
+// returns an array of numbers produced by the generator function.
+
+var random20 = function () {
+  var min = 5;
+  var max = 20;
+  var result = Math.round(Math.random() * (max - min)) + min;
+  console.log(result);
+};
+var random100 = function () {
+  var min = 50;
+  var max = 100;
+  var result = Math.round(Math.random() * (max - min)) + min;
+  console.log(result);
+};
+
+random20();
+random100();
+var generate = function (num) {
+  return Math.round(Math.random() * num);
+};
+var generateArr = function (num, cb) {
+  return Array.from(new Array(num), () => cb(num));
+};
+
+var x = generateArr(7, generate);
+console.log(x);
+*/
+
+/*
+// 12. Write a function that shuffles the elements of a given array.
+// Input: [3, 6, 11, 2, 9, 1]
+// Output: [6, 2, 9, 1, 3, 11] (it can be any random permutation of the given array)
+
+var arr = [3, 6, 11, 2, 9, 1];
+
+var shufle = function (arr) {
+  var newArr = arr.sort(() => {
+    return Math.random() - 0.5;
+  });
+  return newArr;
+};
+
+var x = shufle(arr);
+console.log(x);
+*/
