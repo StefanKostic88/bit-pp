@@ -75,6 +75,24 @@ var newVal = arr.reduce(
 );
 
 console.log(newVal);
+
+
+var newVal = arr.reduce(
+  function (obj, el, index, arr) {
+    var temp = obj.minVale;
+    console.log(temp);
+    if (temp > el) {
+      temp = el;
+    }
+    obj.minVale = temp;
+    obj.lastIndex = arr.lastIndexOf(temp);
+
+    return obj;
+  },
+  { minVale: 0 }
+);
+
+console.log(newVal, "NEW VALUE");
 */
 
 /*
