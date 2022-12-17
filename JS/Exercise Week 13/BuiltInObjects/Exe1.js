@@ -71,12 +71,66 @@ var reverseNum = function (num) {
 // var x = addLeterrs("0000000", "123", "r");
 // console.log(x);
 
-var firstLetter = function (str) {
-  //   return str.slice(0, 1).toUpperCase() + str.slice(1, -1);
-  var arr = str.split("");
-  arr[0] = arr[0].toUpperCase();
-  return arr.join("");
-};
+// var firstLetter = function (str) {
+//   //   return str.slice(0, 1).toUpperCase() + str.slice(1, -1);
+//   var arr = str.split("");
+//   arr[0] = arr[0].toUpperCase();
+//   return arr.join("");
+// };
 
-var x = firstLetter("js string exercises");
-console.log(x);
+// var x = firstLetter("js string exercises");
+// console.log(x);
+
+// var sortLeterrs = function (word) {
+//   return word.toLowerCase().split("").sort().join("");
+// };
+
+// var x = sortLeterrs("Webmaster");
+// console.log(x);
+
+// 'Republic Of Serbia'
+
+// var sortWords = function (sent) {
+//   var newString = sent
+//     .split(" ")
+//     .map((el) => el.split("").sort().join(""))
+//     .join(" ");
+//   return newString;
+// };
+// var x = sortWords("Republic Of Serbia");
+// console.log(x);
+
+// &quot;John Snow&quot;
+
+// var createArr = function (string) {
+//   return string.split(" ");
+// };
+// var x = createArr("John Snow");
+// console.log(x);
+
+// var removeLast = function (string) {
+//   return string.split(" ")[0] + " " + string.split(" ")[1].slice(0, 1) + ".";
+// };
+// var x = removeLast("John Snow");
+// console.log(x);
+
+// &quot;somerandomaddress@example.com&quot;
+
+// var replaceMail = function (string) {
+//   var index = string.indexOf("@");
+//   var first = string
+//     .slice(0, index)
+//     .split("")
+//     .map(function (el) {
+//       return el.replace(el, ".");
+//     })
+//     .join("");
+//   var second = string.slice(index);
+//   return first + second;
+// };
+
+// var x = replaceMail("somerandomaddress@example.com");
+// console.log(x);
+
+// var UPPER = &#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;;
+// var LOWER = &#39;abcdefghijklmnopqrstuvwxyz&#39;;
