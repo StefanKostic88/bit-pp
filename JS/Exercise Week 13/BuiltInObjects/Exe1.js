@@ -132,5 +132,23 @@ var reverseNum = function (num) {
 // var x = replaceMail("somerandomaddress@example.com");
 // console.log(x);
 
-// var UPPER = &#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;;
-// var LOWER = &#39;abcdefghijklmnopqrstuvwxyz&#39;;
+var UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var LOWER = "abcdefghijklmnopqrstuvwxyz";
+
+var switchLetters = function (string) {
+  var newArr = string.split(" ").map((el) => {
+    console.log(el);
+    // var temp;
+    // if (UPPER.includes(el)) {
+    //   temp = el.toLowerCase();
+    // }
+    // if (LOWER.includes(el)) {
+    //   temp = el.toUpperCase();
+    // }
+
+    // return temp;
+  });
+  // console.log(newArr.join(""));
+};
+
+switchLetters("The Quick Brown Fox");
