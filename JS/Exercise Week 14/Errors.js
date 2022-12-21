@@ -25,16 +25,16 @@ console.log("test 4");
 console.log("test 5");
 console.log("test 6");
 
+function add(num = 0) {
+  // num = num || 0;
+  num++;
+  return num;
+}
+
 var x = ["Stefan", "Goran", "Jovan", "Radasin", "Stefan", "Goran"];
 
-var nesto = x.reduce(function (obj, el, index, arr) {
-  x.forEach((el1) => {
-    var counter = 0;
-    counter = el === el1 ? counter++ : counter;
-    console.log(counter);
-  });
-  obj[el] = 0;
-  //   console.log(obj);
-
+var nesto = x.reduce(function (obj, el) {
+  obj[el] = add(obj[el]);
   return obj;
 }, {});
+console.log(nesto);
