@@ -74,15 +74,22 @@
   };
 
   try {
-    var prod = new Product("Banana", 25.88, "12/28,2022");
-    var prod2 = new Product("Ananas", 15.87, "10/15,2023");
-    var prod3 = new Product("PC", 1000.99, "12/28,2023");
-    var prod4 = new Product("Iphone", 900.99, "02/05,2023");
+    var prodArr = [
+      { name: "Banana", price: 25.88, date: "12/28,2022" },
+      { name: "Ananas", price: 15.87, date: "10/15,2023" },
+      { name: "PC", price: 1000.99, date: "12/28,2023" },
+      { name: "Iphone", price: 900.99, date: "02/05,2023" },
+    ];
+    var newProdArr = prodArr.map(
+      (el) => new Product(el.name, el.price, el.date)
+    );
+
+    var [prod, prod2, prod3, prod4] = newProdArr;
+
     var shopBag = new ShoppingBag();
-    shopBag.addProduct(prod);
-    shopBag.addProduct(prod2);
-    shopBag.addProduct(prod3);
-    shopBag.addProduct(prod4);
+
+    newProdArr.forEach((el) => shopBag.addProduct(el));
+
     var myCard = new PaymentCard(2850.855555, true, "12/11/2024");
     var data = checkoutAndBuy(shopBag, myCard);
 
