@@ -1,6 +1,8 @@
 "use strict";
 
-function App(stars) {
+function App(name, licence, stars) {
+  this.name = name;
+  this.licence = licence;
   this.stars = stars;
 }
 
@@ -27,11 +29,10 @@ App.prototype.getData = function (data) {
 };
 
 function WebApp(name, url, tehnologies, licence, stars) {
-  App.call(this, stars);
-  this.name = name;
+  App.call(this, name, licence, stars);
+
   this.url = url;
   this.tehnologies = tehnologies;
-  this.licence = licence;
 }
 
 WebApp.prototype = Object.create(App.prototype);
@@ -56,10 +57,9 @@ var webGame = new WebApp(
 // webGame.showStars();
 
 function MobileApp(name, platforms, license, stars) {
-  App.call(this, stars);
-  this.name = name;
+  App.call(this, name, license, stars);
+
   this.platforms = platforms;
-  this.license = license;
 }
 
 MobileApp.prototype = Object.create(App.prototype);
