@@ -35,10 +35,10 @@
       <form action="">
         <label for="program-date">Date</label>
         <input type="date" id="program-date" />
-        <p id="add-program-error">Invalid Date</p>
+        <p id="add-program-error"></p>
         <button id="create-program-btn">Create Program</button>
         <ul id="program-container">
-          <li>12.09.2023, 1 movie, duration: 120min</li>
+          <!-- <li>12.09.2023, 1 movie, duration: 120min</li> -->
         </ul>
 
         <h2>Movie</h2>
@@ -46,10 +46,11 @@
           <option value="">-</option>
         </select>
         <h2>Program</h2>
-        <select name="" id="">
+        <select name="program-list" id="program-list">
           <option value="">-</option>
         </select>
-        <button>Add movie to program</button>
+        <p id="add-movie-to-pprogram-error"></p>
+        <button id="add-movie-to-program-btn">Add movie to program</button>
       </form>
     </div>
     <script src="./js/entites.js"></script>

@@ -22,23 +22,55 @@ class Movie {
 class Program {
   constructor(date) {
     this.date = new Date(date);
-    this.listOfMOvies = [];
+    this.listOfMovies = [];
   }
 
-  getData() {
-    var tempDate =
+  getFormatedDate() {
+    return (
       this.date.getDate() +
       "." +
       (this.date.getMonth() + 1) +
       "." +
-      this.date.getFullYear();
-
-    return (
-      tempDate +
-      ", " +
-      this.listOfMOvies.length +
-      " movies, duration" +
-      " 120 minutes"
+      this.date.getFullYear()
     );
+  }
+
+  getMovieMinutes() {
+    return this.listOfMovies.reduce((acc, el) => {
+      acc += el.length;
+      return acc;
+    }, 0);
+  }
+
+  getData() {
+    return (
+      this.getFormatedDate() +
+      ", " +
+      this.listOfMovies.length +
+      " movies, duration " +
+      this.getMovieMinutes() +
+      " minutes"
+    );
+  }
+  chekIfValid() {
+    return this.date.getTime();
+  }
+  addMovieToList(movie) {
+    this.listOfMovies.push(movie);
+  }
+}
+
+class Festival {
+  constructor() {
+    this.listOfMovies = [];
+    this.listOfPrograms = [];
+  }
+
+  addMovieToList(movie) {
+    this.listOfMovies.push(movie);
+  }
+
+  addProgramToList(d) {
+    this.listOfPrograms.push(d);
   }
 }
