@@ -1,0 +1,110 @@
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+ul {
+  list-style: none;
+}
+
+.main-heading {
+  margin: 9rem 0 6rem 0;
+  font-size: 4rem;
+  align-self: baseline;
+  color: rgb(59, 59, 59);
+}
+
+.wraper {
+  width: 1600px;
+}
+.overall-container {
+  background-image: url("https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 18rem;
+  gap: 1rem;
+}
+.overall-container h1 {
+  font-weight: 700;
+}
+.overall-container h2 {
+  font-weight: 300;
+}
+.stat-bar {
+  font-weight: 300;
+  width: 20rem;
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+.passed-bar {
+  background-color: #33b8b4;
+}
+.faild-bar {
+  background-color: red;
+}
+.input-container {
+  min-height: 4rem;
+  background-color: rgb(185, 185, 185);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-container select,
+.input-container input {
+  padding: 0.5rem 1.5rem;
+}
+.input-container button {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  font-size: 1.4rem;
+  color: #37b9b5;
+}
+
+.lists-container {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: baseline;
+  margin-top: 2rem;
+}
+
+.sub-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: rgb(58, 58, 58);
+  font-weight: 500;
+}
+.sub-container li {
+  width: 15rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+}
+
+.passed-list-container h2 {
+  color: #33b8b4;
+}
+.faild-list-container h2 {
+  color: red;
+}
