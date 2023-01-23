@@ -21,12 +21,16 @@
           <h3 class="stat-bar faild-bar"><span>Faild</span> <span>2</span></h3>
         </div>
         <div class="input-container">
-          <select name="" id="">
-            <option value="">JavaScript</option>
+          <select name="subject-name" id="subject-name">
+            <option value="">Chose Language</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Java">Java</option>
+            <option value="Pyton">Pyton</option>
+            <option value="PHP">PHP</option>
           </select>
-          <input type="text" placeholder="name surname" />
-          <input type="text" placeholder="grade" />
-          <button>ADD</button>
+          <input type="text" placeholder="name surname" id="student-name" />
+          <input type="text" placeholder="grade" id="student-grade" />
+          <button id="add-info-btn">ADD</button>
         </div>
         <div class="lists-container">
           <div class="sub-container passed-list-container">
@@ -45,5 +49,10 @@
         </div>
       </div>
     </div>
+    <script src="./js/subject.js"></script>
+    <script src="./js/student.js"></script>
+    <script src="./js/exam.js"></script>
+    <script src="./js/form.js"></script>
+    <script src="./js/app.js"></script>
   </body>
 </html>
