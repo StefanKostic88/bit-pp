@@ -16,9 +16,11 @@
           <h1>Exam statistic june</h1>
           <h2>Total students %count%</h2>
           <h3 class="stat-bar passed-bar">
-            <span>Passed</span> <span>1</span>
+            <span>Passed</span><span id="passed-number">0</span>
           </h3>
-          <h3 class="stat-bar faild-bar"><span>Faild</span> <span>2</span></h3>
+          <h3 class="stat-bar faild-bar">
+            <span>Faild</span> <span id="faild-number">0</span>
+          </h3>
         </div>
         <div class="input-container">
           <select name="subject-name" id="subject-name">
@@ -35,14 +37,20 @@
         <div class="lists-container">
           <div class="sub-container passed-list-container">
             <h2>Passed</h2>
-            <ul>
-              <li><span>js-adsada</span> <span>5</span></li>
+            <ul class="passed-list">
+              <li>
+                <span class="list-item-name-passed">js-adsada</span>
+                <span class="list-item-grade-passed">5</span>
+              </li>
             </ul>
           </div>
           <div class="sub-container faild-list-container">
             <h2>Faild</h2>
-            <ul>
-              <li><span>web-sdfa</span><span>NaN</span></li>
+            <ul class="faild-list">
+              <li>
+                <span class="list-item-name-faild">web-sdfa</span
+                ><span class="list-item-grade-faild">NaN</span>
+              </li>
               <li><span>js-sdfa</span><span>10</span></li>
             </ul>
           </div>
