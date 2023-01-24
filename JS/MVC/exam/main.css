@@ -82,7 +82,7 @@ ul {
 
 .lists-container {
   display: flex;
-  gap: 3rem;
+  gap: 10rem;
   justify-content: center;
   align-items: baseline;
   margin-top: 2rem;

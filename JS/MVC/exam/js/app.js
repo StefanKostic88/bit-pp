@@ -30,42 +30,27 @@ submitInfoEl.addEventListener("click", function (e) {
   var exam = new Exam(subject, student, grade);
 
   var form = new Form(exam);
-  console.log(form);
-
-  ///u form class ubaciti metodu za validaciju
 
   var hasPassed = exam.hasPassed();
-  console.log(hasPassed);
 
   if (hasPassed) {
-    passedNumber++;
-    passedNumEl.textContent = passedNumber;
-    var tempLi = document.createElement("li");
-    var tempSpan = document.createElement("span");
-    tempSpan.setAttribute("class", "list-item-name-passed");
-    var tempSpan2 = document.createElement("span");
-    tempSpan2.setAttribute("class", "list-item-grade-passed");
-    tempSpan.textContent =
-      subject.getSubjectName() + " " + student.getStudentData();
-
-    tempSpan2.textContent = grade;
-    tempLi.append(tempSpan);
-    tempLi.append(tempSpan2);
-    passedListEl.append(tempLi);
+    form.passedExam(passedNumber);
   } else {
-    faildNumber++;
-    faildNumEl.textContent = faildNumber;
-
-    var tempLi = document.createElement("li");
-    var tempSpan = document.createElement("span");
-    tempSpan.setAttribute("class", "list-item-name-faild");
-    var tempSpan2 = document.createElement("span");
-    tempSpan2.setAttribute("class", "list-item-grade-faild");
-    tempSpan.textContent =
-      subject.getSubjectName() + " " + student.getStudentData();
-    tempSpan2.textContent = grade;
-    tempLi.append(tempSpan);
-    tempLi.append(tempSpan2);
-    faildListEl.append(tempLi);
+    form.faildExam(faildNumber);
   }
 });
+
+// faildNumber++;
+// faildNumEl.textContent = faildNumber;
+
+// var tempLi = document.createElement("li");
+// var tempSpan = document.createElement("span");
+// tempSpan.setAttribute("class", "list-item-name-faild");
+// var tempSpan2 = document.createElement("span");
+// tempSpan2.setAttribute("class", "list-item-grade-faild");
+// tempSpan.textContent =
+//   subject.getSubjectName() + " " + student.getStudentData();
+// tempSpan2.textContent = grade;
+// tempLi.append(tempSpan);
+// tempLi.append(tempSpan2);
+// faildListEl.append(tempLi);
