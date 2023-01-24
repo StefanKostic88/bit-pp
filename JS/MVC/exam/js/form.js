@@ -1,6 +1,8 @@
 class Form {
   _passedNumEl = document.querySelector("#passed-number");
   _faildNumEl = document.querySelector("#faild-number");
+  _passedListEl = document.querySelector(".passed-list");
+  _faildListEl = document.querySelector(".faild-list");
   constructor(data) {
     this.data = data;
     this.subject;
@@ -21,12 +23,14 @@ class Form {
     this.grade = grade;
   }
 
-  passedExam(counter) {
-    counter++;
+  callAll() {
     this.getSubject();
     this.getStudent();
     this.getGrade();
-    this._passedNumEl.textContent = counter;
+  }
+
+  generateResults(gradeNode, displayNode, counter) {
+    gradeNode.textContent = counter;
     var tempLi = document.createElement("li");
     var tempSpan = document.createElement("span");
     tempSpan.setAttribute("class", "list-item-name-passed");
@@ -36,23 +40,43 @@ class Form {
     tempSpan2.textContent = this.grade;
     tempLi.append(tempSpan);
     tempLi.append(tempSpan2);
-    passedListEl.append(tempLi);
+    displayNode.append(tempLi);
+  }
+
+  passedExam(counter) {
+    counter++;
+    this.callAll();
+    this.generateResults(this._passedNumEl, this._passedListEl, counter);
+    return counter;
   }
   faildExam(counter) {
     counter++;
-    this.getSubject();
-    this.getStudent();
-    this.getGrade();
-    this._faildNumEl.textContent = counter;
-    var tempLi = document.createElement("li");
-    var tempSpan = document.createElement("span");
-    tempSpan.setAttribute("class", "list-item-name-faild");
-    var tempSpan2 = document.createElement("span");
-    tempSpan2.setAttribute("class", "list-item-grade-faild");
-    tempSpan.textContent = this.subject + " " + this.student;
-    tempSpan2.textContent = this.grade;
-    tempLi.append(tempSpan);
-    tempLi.append(tempSpan2);
-    faildListEl.append(tempLi);
+    this.callAll();
+    this.generateResults(this._faildNumEl, this._faildListEl, counter);
+    return counter;
   }
 }
+
+// this._passedNumEl.textContent = counter;
+// var tempLi = document.createElement("li");
+// var tempSpan = document.createElement("span");
+// tempSpan.setAttribute("class", "list-item-name-passed");
+// var tempSpan2 = document.createElement("span");
+// tempSpan2.setAttribute("class", "list-item-grade-passed");
+// tempSpan.textContent = this.subject + " " + this.student;
+// tempSpan2.textContent = this.grade;
+// tempLi.append(tempSpan);
+// tempLi.append(tempSpan2);
+// this._passedListEl.append(tempLi);
+
+// this._faildNumEl.textContent = counter;
+// var tempLi = document.createElement("li");
+// var tempSpan = document.createElement("span");
+// tempSpan.setAttribute("class", "list-item-name-faild");
+// var tempSpan2 = document.createElement("span");
+// tempSpan2.setAttribute("class", "list-item-grade-faild");
+// tempSpan.textContent = this.subject + " " + this.student;
+// tempSpan2.textContent = this.grade;
+// tempLi.append(tempSpan);
+// tempLi.append(tempSpan2);
+// this._faildListEl.append(tempLi);
