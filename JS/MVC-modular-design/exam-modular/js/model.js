@@ -62,6 +62,10 @@ var model = (function () {
       this.grade;
     }
 
+    getExam() {
+      return this.data.getExamInfo();
+    }
+
     getGrade() {
       var { grade } = this.data;
       this.grade = +grade;
@@ -70,7 +74,6 @@ var model = (function () {
 
     validateForm() {
       var grade = this.getGrade();
-      console.log(grade);
       if (grade < 1 || grade > 10) return false;
       return true;
     }

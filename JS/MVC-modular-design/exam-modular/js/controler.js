@@ -19,12 +19,14 @@
 
       //form validacija 2
 
+      //   console.log(form.);
+
       if (isValid) {
         model.state.pass++;
-        generateResults(_passedListEl, _passedNumEl, model.state.pass, exam);
+        generateResults(_passedListEl, _passedNumEl, model.state.pass, form);
       } else {
         model.state.fail++;
-        generateResults(_faildListEl, _faildNumEl, model.state.fail, exam);
+        generateResults(_faildListEl, _faildNumEl, model.state.fail, form);
       }
     } catch (err) {
       console.log(err.message);
@@ -32,9 +34,9 @@
   });
 })(model, view);
 
-var generateResults = function (inputNode, outputNode, counter, exam) {
+var generateResults = function (inputNode, outputNode, counter, obj) {
   var li = document.createElement("li");
-  li.textContent = exam.getExamInfo();
+  li.textContent = obj.getExam();
   inputNode.appendChild(li);
   outputNode.textContent = counter;
 };
