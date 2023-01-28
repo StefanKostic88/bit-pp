@@ -10,46 +10,35 @@
   var addNewMovie = function (e) {
     e.preventDefault();
     try {
-      if (!ui.isValid())
-        throw new Error("Invalid Input, all fields are required");
+      var isValid = ui.movieIsValid();
+      if (!isValid) throw new Error("Invalid Input, all fields are required");
       var movie = data.generateMovie(ui.collectData());
-
+      var movieExist = data.chekIfMovieExists(data.festival, movie);
+      if (movieExist) throw new Error("Movie Allready Exists");
       ui.renderMovieList(movie);
       var index = data.festival.addMovieToList(movie) - 1;
       ui.renderMovieOptions(movie.getTitle(), index);
-      ui.clearInput();
+      ui.clearMovieInput();
     } catch (err) {
-      ui.renderError(err.message);
+      ui.renderMovieError(err.message);
     }
   };
 
   var addNewProgram = function (e) {
     e.preventDefault();
     try {
-      //   if (
-      //     new Date(dateInputEl.value).getTime() < Date.now() ||
-      //     dateInputEl.value === ""
-      //   ) {
-      //     addProgramErrorEl.textContent = "Invalid Date";
-      //     return;
-      //   }
-
-      //   var isNotValid = festival.listOfPrograms.some(function (el) {
-      //     return new Date(dateInputEl.value).getTime() === el.chekIfValid();
-      //   });
-
-      //   if (isNotValid) {
-      //     addProgramErrorEl.textContent = "Program Already Exists";
-      //     return;
-      //   }
-
       var program = data.generateProgram(ui.collectDate());
-
+      var programExists = data.chekIfProgramExists(
+        data.festival.listOfPrograms,
+        ui.collectDate()
+      );
+      if (programExists) throw new Error("Program Already Exists");
       if (ui.prgoramIsNotValid(ui.collectDate()))
         throw new Error("Invalid Program Input");
       var index = data.festival.addProgramToList(program) - 1;
       ui.renderProgramList(program, index);
       ui.renderProgramOptions(program, index);
+      ui.clearProgramInput();
     } catch (err) {
       ui.renderProgramError(err.message);
     }
@@ -59,21 +48,24 @@
     e.preventDefault();
 
     try {
+      ui.clearProgramError();
       var { movieList: movieIndex, programList: programIndex } =
         ui.collectProgramAndMovieData();
       var festival = data.festival;
+      var movie = data.findMovie(festival.listOfMovies, movieIndex);
+      var program = data.findProgram(festival.listOfPrograms, programIndex);
 
-      var movie = festival.listOfMovies.find(
-        (el, index) => index === movieIndex
-      );
-      var program = festival.listOfPrograms.find(
-        (el, index) => index === programIndex
-      );
       program.addMovieToList(movie);
-      ui.updateProgram(programIndex, program);
+      data.festival.minutes = program.getMovieMinutes();
 
-      //   programContainerEl.children[programIndex].textContent = program.getData();
-    } catch (err) {}
+      if (data.festival.minutes > 400)
+        throw new Error(
+          "Program Cant Have More Than 400 minutes for current day"
+        );
+      ui.updateProgram(programIndex, program);
+    } catch (err) {
+      ui.renderProgramError(err.message);
+    }
   };
 
   createMovieBtn.addEventListener("click", addNewMovie);

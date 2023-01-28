@@ -20,6 +20,8 @@ var uiModule = (function () {
 
   /////Methods
 
+  //Colecting input data
+
   var collectData = function () {
     return {
       title: movieTitleEl.value,
@@ -32,35 +34,69 @@ var uiModule = (function () {
     return dateInputEl.value;
   };
 
-  var renderMovieList = function (movie) {
+  var collectProgramAndMovieData = function () {
+    return {
+      movieList: +moviesListContainer.value,
+      programList: +programListContainer.value,
+    };
+  };
+
+  //reseting inputs
+
+  var clearMovieInput = function () {
+    addMovieErrorEl.textContent = "";
+    movieTitleEl.value = "";
+    movieLengthEl.value = "";
+    movieGenreEl.value = "";
+  };
+
+  var clearProgramInput = function () {
+    dateInputEl.value = "";
+  };
+
+  //rendering movie and program list
+
+  var renderList = function (nodeEl, obj, index = null) {
     var tempLi = document.createElement("li");
-    tempLi.textContent = movie.getData();
-    console.log(tempLi);
-    moviesContainerEl.append(tempLi);
+    tempLi.textContent = obj.getData();
+    if (index) {
+      tempLi.setAttribute("id", index);
+    }
+    nodeEl.append(tempLi);
   };
 
-  var renderMovieOptions = function (movieTitle, index) {
-    var optionEl = document.createElement("option");
-    optionEl.setAttribute("value", index);
-    optionEl.textContent = movieTitle;
-    moviesListContainer.append(optionEl);
-  };
-
-  var renderProgramOptions = function (program, index) {
-    var tempProgramOption = document.createElement("option");
-    tempProgramOption.setAttribute("value", index);
-    tempProgramOption.textContent = program.getProgramOptions();
-    programListContainer.append(tempProgramOption);
+  var renderMovieList = function (movie) {
+    renderList(moviesContainerEl, movie);
   };
 
   var renderProgramList = function (propgram, index) {
-    var tempLi = document.createElement("li");
-    tempLi.setAttribute("id", index);
-    tempLi.textContent = propgram.getData();
-    programContainerEl.append(tempLi);
+    renderList(programContainerEl, propgram, index);
   };
 
-  var isValid = function () {
+  // rendering movie and program options
+
+  var renderOptions = function (data, index, nodeEl) {
+    var optionEl = document.createElement("option");
+    optionEl.setAttribute("value", index);
+    if (typeof data === "string") {
+      optionEl.textContent = data;
+    } else {
+      optionEl.textContent = data.getProgramOptions();
+    }
+    nodeEl.append(optionEl);
+  };
+
+  var renderMovieOptions = function (movieTitle, index) {
+    renderOptions(movieTitle, index, moviesListContainer);
+  };
+
+  var renderProgramOptions = function (program, index) {
+    renderOptions(program, index, programListContainer);
+  };
+
+  //Validation
+
+  var movieIsValid = function () {
     if (!movieTitleEl.value || !movieLengthEl.value || !movieGenreEl.value) {
       return false;
     } else {
@@ -69,35 +105,23 @@ var uiModule = (function () {
   };
 
   var prgoramIsNotValid = function (date) {
-    if (
-      new Date(date.value).getTime() < Date.now() ||
-      dateInputEl.value === ""
-    ) {
+    console.log(date);
+    if (new Date(date).getTime() < Date.now() || dateInputEl.value === "") {
       return true;
     } else {
       return false;
     }
   };
 
-  var renderError = function (errMsg) {
+  var renderMovieError = function (errMsg) {
     addMovieErrorEl.textContent = errMsg;
   };
   var renderProgramError = function (errMsg) {
     addMovieToProgramErrEl.textContent = errMsg;
   };
 
-  var clearInput = function () {
-    addMovieErrorEl.textContent = "";
-    movieTitleEl.value = "";
-    movieLengthEl.value = "";
-    movieGenreEl.value = "";
-  };
-
-  var collectProgramAndMovieData = function () {
-    return {
-      movieList: +moviesListContainer.value,
-      programList: +programListContainer.value,
-    };
+  var clearProgramError = function () {
+    addMovieToProgramErrEl.textContent = "";
   };
 
   var updateProgram = function (index, program) {
@@ -113,12 +137,14 @@ var uiModule = (function () {
     renderMovieOptions: renderMovieOptions,
     renderProgramOptions: renderProgramOptions,
     renderProgramList: renderProgramList,
-    isValid: isValid,
-    renderError: renderError,
-    clearInput: clearInput,
+    movieIsValid: movieIsValid,
+    renderMovieError: renderMovieError,
+    clearMovieInput: clearMovieInput,
+    clearProgramInput: clearProgramInput,
     prgoramIsNotValid: prgoramIsNotValid,
     renderProgramError: renderProgramError,
     collectProgramAndMovieData: collectProgramAndMovieData,
+    clearProgramError: clearProgramError,
     updateProgram: updateProgram,
   };
 })();

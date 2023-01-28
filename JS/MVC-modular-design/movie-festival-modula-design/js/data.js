@@ -3,6 +3,7 @@ var dataModule = (function () {
     constructor() {
       this.listOfMovies = [];
       this.listOfPrograms = [];
+      this.minutes = 0;
     }
 
     addMovieToList(movie) {
@@ -82,6 +83,26 @@ var dataModule = (function () {
     }
   }
 
+  var chekIfMovieExists = function (arr, movie) {
+    return arr.listOfMovies.find((el) => {
+      return el.name === movie.getTitle();
+    });
+  };
+
+  var chekIfProgramExists = function (arr, date) {
+    return arr.some(function (el) {
+      return new Date(date).getTime() === el.chekIfValid();
+    });
+  };
+
+  var findMovie = function (arr, movieIndex) {
+    return arr.find((el, index) => index === movieIndex);
+  };
+
+  var findProgram = function (arr, programIndex) {
+    return arr.find((el, index) => index === programIndex);
+  };
+
   var festival = new Festival();
 
   var generateMovie = function (dataObj) {
@@ -96,5 +117,9 @@ var dataModule = (function () {
     festival: festival,
     generateMovie: generateMovie,
     generateProgram: generateProgram,
+    chekIfMovieExists: chekIfMovieExists,
+    chekIfProgramExists: chekIfProgramExists,
+    findMovie: findMovie,
+    findProgram: findProgram,
   };
 })();
