@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main-wraper">
+      <h1 class="main-heading">Exam Statistic</h1>
+
+      <div class="wraper">
+        <div class="overall-container">
+          <h1>Exam statistic june</h1>
+          <h2>Total students %count%</h2>
+          <h3 class="stat-bar passed-bar">
+            <span>Passed</span><span id="passed-number">0</span>
+          </h3>
+          <h3 class="stat-bar faild-bar">
+            <span>Faild</span> <span id="faild-number">0</span>
+          </h3>
+        </div>
+        <div class="input-container">
+          <select name="subject-name" id="subject-name">
+            <option value="">Chose Language</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Java">Java</option>
+            <option value="Pyton">Pyton</option>
+            <option value="PHP">PHP</option>
+          </select>
+          <input type="text" placeholder="name surname" id="student-name" />
+          <input type="text" placeholder="grade" id="student-grade" />
+          <button id="add-info-btn">ADD</button>
+        </div>
+        <div class="lists-container">
+          <div class="sub-container passed-list-container">
+            <h2>Passed</h2>
+            <ul class="passed-list"></ul>
+          </div>
+          <div class="sub-container faild-list-container">
+            <h2>Faild</h2>
+            <ul class="faild-list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="overlay"></div>
+    <div id="error-modal">Number Must be between 1 - 10</div>
+    <script src="./js/model.js"></script>
+    <script src="./js/view.js"></script>
+    <script src="./js/controler.js"></script>
+  </body>
+</html>
