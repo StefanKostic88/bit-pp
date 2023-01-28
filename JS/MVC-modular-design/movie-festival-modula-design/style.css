@@ -1,0 +1,48 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wraper {
+  width: 1200px;
+
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 0 2px rgb(107, 107, 107);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+input {
+  width: 95%;
+  align-self: center;
+}
+button,
+select {
+  width: 95%;
+  text-align: center;
+}
+button {
+  background-color: #4caf4f;
+  color: #fff;
+  padding: 5px 0;
+}
+
+p {
+  color: red;
+}

@@ -34,6 +34,7 @@ var addNewMovie = function (e) {
 
   var genre = new Genre(movieGenreEl.value);
   var movie = new Movie(movieTitleEl.value, +movieLengthEl.value, genre);
+
   var tempLi = document.createElement("li");
   tempLi.textContent = movie.getData();
   moviesContainerEl.append(tempLi);
@@ -105,7 +106,9 @@ var addMovieToProgramHandler = function (e) {
 
   program.addMovieToList(movie);
 
-  programContainerEl.children[programIndex].textContent = program.getData();
+  uiModule.updateProgram(programIndex, program);
+
+  // programContainerEl.children[programIndex].textContent = program.getData();
 };
 
 createMovieBtn.addEventListener("click", addNewMovie);
