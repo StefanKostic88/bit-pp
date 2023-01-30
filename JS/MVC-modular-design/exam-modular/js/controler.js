@@ -1,42 +1,31 @@
 (function (data, ui) {
-  var btn = document.getElementById("add-info-btn");
+  var formView = ui.generateFormView();
 
-  var _passedNumEl = document.querySelector("#passed-number");
-  var _faildNumEl = document.querySelector("#faild-number");
-  var _passedListEl = document.querySelector(".passed-list");
-  var _faildListEl = document.querySelector(".faild-list");
-
-  btn.addEventListener("click", function (e) {
+  var addExamResultsHandler = function (e) {
     e.preventDefault();
     try {
-      var { subject, studentName, grade } = ui.colectData();
+      var { subject, studentName, grade } = formView.colectData();
       var exam = data.generateExam(subject, studentName, grade);
       var form = data.generateForm(exam);
       var formIsValid = form.validateForm();
       if (!formIsValid) throw new Error("Grade must be between 1 and 10");
-
-      var isValid = exam.hasPassed();
-
-      //form validacija 2
-
-      //   console.log(form.);
-
-      if (isValid) {
-        model.state.pass++;
-        generateResults(_passedListEl, _passedNumEl, model.state.pass, form);
-      } else {
-        model.state.fail++;
-        generateResults(_faildListEl, _faildNumEl, model.state.fail, form);
-      }
+      formView.clearError();
+      formView.clearInputs();
+      var examIsValid = exam.hasPassed();
+      var { passed, info, passCounter, failCounter } = form.validation(
+        examIsValid,
+        model.state.pass,
+        model.state.fail
+      );
+      model.state.pass = passCounter;
+      model.state.fail = failCounter;
+      formView.renderResults(passed, info, passCounter, failCounter);
+      model.state.generateData();
+      formView.getTotalStudents(model.state.getTotalStudents());
+      formView.renderFailPercentage(model.state.getFailPercentage());
     } catch (err) {
-      console.log(err.message);
+      formView.renderFormError();
     }
-  });
+  };
+  formView.addExamHandler(addExamResultsHandler);
 })(model, view);
-
-var generateResults = function (inputNode, outputNode, counter, obj) {
-  var li = document.createElement("li");
-  li.textContent = obj.getExam();
-  inputNode.appendChild(li);
-  outputNode.textContent = counter;
-};

@@ -1,14 +1,28 @@
 var model = (function () {
+  //App initialization
+
   class InitialAppState {
     constructor() {
       this.pass = 0;
       this.fail = 0;
+      this.totalStudents = 0;
+      this.percent = 0;
+    }
+
+    generateData() {
+      this.totalStudents = this.pass + this.fail;
+      this.percent = ((this.fail * 100) / this.totalStudents).toFixed(2);
     }
 
     getFailPercentage() {
-      // ((this.pass + this.fail) * 100) / this.fail;
+      return this.percent;
+    }
+    getTotalStudents() {
+      return this.totalStudents;
     }
   }
+
+  //Model Classes
 
   class Subject {
     constructor(name) {
@@ -66,16 +80,47 @@ var model = (function () {
       return this.data.getExamInfo();
     }
 
+    getSubject() {
+      var { subject } = this.data;
+      this.subject = subject.getSubjectName();
+      return this.subject;
+    }
+    getStudent() {
+      var { student } = this.data;
+      this.student = student.getStudentData();
+      return this.student;
+    }
+
     getGrade() {
       var { grade } = this.data;
       this.grade = +grade;
       return this.grade;
+    }
+    callAll() {
+      return {
+        subject: this.getSubject(),
+        student: this.getStudent(),
+        grade: this.getGrade(),
+      };
     }
 
     validateForm() {
       var grade = this.getGrade();
       if (grade < 1 || grade > 10) return false;
       return true;
+    }
+
+    validation(isValid, passCounter, failCounter) {
+      var passed;
+      var info = this.callAll();
+      if (isValid) {
+        passCounter++;
+        passed = true;
+      } else {
+        failCounter++;
+        passed = false;
+      }
+      return { passed, info, passCounter, failCounter };
     }
   }
 
