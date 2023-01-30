@@ -124,7 +124,8 @@ var model = (function () {
     }
   }
 
-  var generateExam = function (subject, student, grade) {
+  var generateExam = function (data) {
+    var { subject, studentName: student, grade } = data;
     return new Exam(new Subject(subject), new StudentName(student), grade);
   };
 
