@@ -17,7 +17,7 @@
       //exam validation
       var examIsValid = exam.hasPassed();
 
-      //if valid then, then chek if exam is faild or succsess
+      //if valid then, then check if exam is faild or succsess
 
       var { passed, info, passCounter, failCounter } = form.validation(
         examIsValid,

@@ -41,9 +41,12 @@ ul {
 }
 .overall-container h1 {
   font-weight: 700;
+  font-size: 3.2rem;
+  text-transform: capitalize;
 }
 .overall-container h2 {
-  font-weight: 300;
+  font-weight: 400;
+  font-size: 2.2rem;
 }
 .stat-bar {
   font-weight: 300;
@@ -66,12 +69,23 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.25rem;
 }
 
 .input-container select,
 .input-container input {
   padding: 0.5rem 1.5rem;
+  border: none;
+  box-shadow: 0 0 0 1px rgb(73, 73, 73);
+  border-radius: 3px;
+  color: rgb(73, 73, 73);
+  font-size: 1rem;
+  outline: none;
 }
+.input-container input::placeholder {
+  color: rgb(73, 73, 73);
+}
+
 .input-container button {
   outline: none;
   background-color: transparent;
@@ -89,6 +103,7 @@ ul {
 }
 
 .sub-container {
+  min-width: 15rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -96,7 +111,6 @@ ul {
   font-weight: 500;
 }
 .sub-container li {
-  width: 15rem;
   display: flex;
   justify-content: space-between;
   padding: 0.25rem 0;
@@ -104,7 +118,24 @@ ul {
 
 .passed-list-container h2 {
   color: #33b8b4;
+  align-self: flex-end;
 }
 .faild-list-container h2 {
   color: red;
+}
+
+.passed-list-container li,
+.faild-list-container li {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid black;
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+.passed-list-container li:nth-of-type(odd),
+.faild-list-container li:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.passed-list-container li:nth-of-type(even),
+.faild-list-container li:nth-of-type(even) {
+  background-color: rgba(0, 0, 0, 0.05);
 }
