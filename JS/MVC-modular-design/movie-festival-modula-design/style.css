@@ -12,13 +12,22 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
+.main-heading {
+  font-size: 3.4rem;
+}
 .wraper {
   width: 1200px;
-
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 0 2px rgb(107, 107, 107);
+  box-shadow: 0 0 0 1px rgb(107, 107, 107);
+}
+.wraper-title {
+  font-size: 1.6rem;
+}
+.wraper h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
 }
 
 form {
@@ -26,11 +35,13 @@ form {
   flex-direction: column;
   align-items: center;
   gap: 5px;
+  box-shadow: 0 0 0 1px rgb(107, 107, 107);
 }
 
 input {
   width: 95%;
   align-self: center;
+  /* border: none; */
 }
 button,
 select {
