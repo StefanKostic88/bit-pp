@@ -104,4 +104,113 @@ console.log(newArr);
 7. Write a function that filters all integer arguments that contain digit 5.
 Function arguments: 23, 11.5, 9, &#39;abc&#39;, 45, 28, 553
 Output: [45, 553]
+
+
+const arr = [23, 11.5, 9, "abc", 39, 45, 28, 553];
+
+const filteredArr = arr.filter(
+  (el) => `${el}`.includes("5") && !`${el}`.includes(".5")
+);
+console.log(filteredArr);
+*/
+
+/*
+8.Write a function that returns indexes of the elements greater than 10.
+Input: [1.6, 11.34, 29.23, 7, 3.11, 18]
+Output: [1, 2, 5]
+
+
+const arr = [1.6, 11.34, 29.23, 7, 3.11, 18];
+
+const newArr = arr.reduce((acc, el, index) => {
+  el > 10 ? acc.push(index) : null;
+  return acc;
+}, []);
+console.log(newArr);
+*/
+
+/*
+9. a. Create an array of persons. A person should be an object with name and age properties.
+Experiment with enhanced object literals.
+b. Write a function that prints out the names of persons older than 25.
+c. Write a function that check if there is a person older than 40.
+d. Write a function that checks if all persons are older than 20.
+
+
+
+const arr = [
+  { firsName: "Stefan", age: 34 },
+  { firsName: "Mica", age: 60 },
+  { firsName: "Jelena", age: 35 },
+  { firsName: "Marko", age: 46 },
+  { firsName: "Stefan", age: 22 },
+  { firsName: "Jovan", age: 18 },
+  { firsName: "Jovan", age: 42 },
+  { firsName: "Ivan", age: 50 },
+];
+
+const printOlderThan25 = function (arr) {
+  return arr.filter((el) => el.age > 25).map((el) => el.firsName);
+};
+const chekIfAllAreOlder20 = function (arr) {
+  return arr.every((el) => el.age > 20);
+};
+const chekIfanyOlder40 = function (arr) {
+  return arr.some((el) => el.age > 40);
+};
+
+const olderThan25Arr = printOlderThan25(arr);
+console.log(olderThan25Arr);
+const isValid = chekIfAllAreOlder20(arr);
+console.log(isValid);
+const oneForty = chekIfanyOlder40(arr);
+console.log(oneForty);
+
+*/
+/*
+10 Write a function that checks if the given array is an array of positive integer values.
+Input: [3, 11, 9, 5, 6]
+Input: [3, -12, 4, 11]
+Output: no
+Output: yes
+
+
+const arr = [3, 11, 9, 5, 6];
+const arr2 = [3, -12, 4, 11];
+
+const hasPosInt = (arr) => arr.every((el) => el > 0);
+
+console.log(hasPosInt(arr));
+console.log(hasPosInt(arr2));
+*/
+
+/*
+11. Write a function that calculates the product of the elements of the array.
+Input: [2, 8, 3]
+Output: 48
+
+
+const arr = [2, 8, 3];
+
+const calcProd = (arr) => arr.reduce((acc, cur) => (acc *= cur));
+
+console.log(calcProd(arr));
+*/
+
+/*
+12. Write a function that calculates the maximum of the given array.
+Input: [2, 7, 3, 8, 5.4]
+Output: 8
+
+
+
+const arr = [2, 7, 3, 8, 5.4];
+const calcMax = (arr) =>
+  arr.reduce((acc, cur) => {
+    if (acc < cur) acc = cur;
+    return acc;
+  });
+
+console.log(calcMax(arr));
+
 */
